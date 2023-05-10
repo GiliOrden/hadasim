@@ -1,8 +1,6 @@
 var dboperations = require("./dboperations");
 var coronaOperations = require("./coronaOperations");
 
-//var getPeopleDetails = require("./personalDetails");
-
 var express = require("express");
 var bodyParser = require("body-parser");
 var cors = require("cors");

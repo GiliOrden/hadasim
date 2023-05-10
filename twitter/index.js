@@ -60,10 +60,11 @@ function triangularPrint() {
   } else {
     //print the triangular
     var starsText = "";
-    let groupsOfSameLines = (width - 1) / 2;
+    let groupsOfSameLines = (width + 1) / 2;
     //lines in every group exept the first and the last lines
-    let linesGroup = (hight - 2) / (groupsOfSameLines - 2);
+    let linesGroup = Math.floor((hight - 2) / (groupsOfSameLines - 2));
     let remainer = (hight - 2) % (groupsOfSameLines - 2);
+    //console.log("linesGroup: ", linesGroup, "remainer: ", remainer);
     for (let i = 1; i <= groupsOfSameLines; i++) {
       var numOfLines;
       //the first line or the last one
@@ -78,10 +79,12 @@ function triangularPrint() {
       //loop at all the lines in the current group
       for (let j = 0; j < numOfLines; j++) {
         starsText +=
-          " ".repeat((width - numOfStars) / 2) + "*".repeat(numOfStars) + "\n";
+          "&nbsp;&nbsp;".repeat((width - numOfStars) / 2) +
+          "*".repeat(numOfStars) +
+          "<br>";
       }
     }
 
-    document.getElementById("demo").innerText = starsText;
+    document.getElementById("demo").innerHTML = starsText;
   }
 }
