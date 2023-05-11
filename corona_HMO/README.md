@@ -2,8 +2,8 @@ Corona management system for HMO
 
 In order to run the second part of the project follow the following instructions:
 
-1. write in the terminal 'cd ./corona_HMO' and than 'npm start'
-2. open the 'postman'
+1. Write in the terminal 'cd ./corona_HMO' and than 'npm start'
+2. Open the 'postman'
 3. Choose a POST reuest with the URL:http://localhost:8090/api/personalDetails . Choose Body and than 'raw' and change to JSON (instead og text). Than write an object such as:
    {
    "firstName": "John",
@@ -15,12 +15,12 @@ In order to run the second part of the project follow the following instructions
    "mobilePhone": "555-5678"
    }
 
-you will see the status 201 if it succeed and 400 if not.
+You will see the status 201 if it succeed and 400 if not.
 
 4. Choose a GET reuest with the URL:http://localhost:8090/api/personalDetails in order to get the lists.
 5. Choose a GET reuest with the URL:http://localhost:8090/api/personalDetails/A_ID_U_WANT in order to see a spesific element .
 
-6. the same steps of 3, 4, 5, you can do with the values: 3. POST: http://localhost:8090/api/coronaDetails,
+6. The same steps of 3, 4, 5, you can do with the values: 3. POST: http://localhost:8090/api/coronaDetails,
    {
    "identityCard": "765456781",
    "vaccine1Date": "2021-01-01T00:00:00.000Z",
