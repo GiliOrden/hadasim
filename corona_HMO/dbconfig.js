@@ -9,7 +9,7 @@ const config = {
     enableAritAort: true,
     instancename: "SQLEXPRESS",
   },
-  //   i invited it (can be 49693)
+
   port: 1433,
 };
 

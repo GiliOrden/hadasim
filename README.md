@@ -1,3 +1,10 @@
+Twitter exercise
+
+In order to run the first part of the project:
+
+1. In the 'twitter' folder find 'index.html' file.
+2. Right click and choose the option 'Open with live server'
+
 Corona management system for HMO
 
 In order to run the second part of the project follow the following instructions:

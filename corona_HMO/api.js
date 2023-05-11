@@ -1,6 +1,5 @@
 var dboperations = require("./dboperations");
 var coronaOperations = require("./coronaOperations");
-// var isolatinOperations = require("./isolatinOperations");
 
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -13,10 +12,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use("/api", router);
 
-// router.use((request, response, next) => {
-//   console.log("middleware");
-//   next();
-// });
+
 // ###################### get/getAll / post for the personalDetails table
 router.route("/personalDetails").get((request, response) => {
   dboperations.getPeopleDetails().then((result) => {
@@ -40,7 +36,6 @@ router.route("/personalDetails").post((request, response) => {
       response.status(201).send("success , the member added");
     })
     .catch((error) => {
-      //console.log(error);
       response.status(400).send("Failed to add member: " + error.message);
     });
 });
@@ -55,7 +50,6 @@ router.route("/coronaDetails/:identityCard").get((request, response) => {
   coronaOperations
     .getCoronaDetails(request.params.identityCard)
     .then((result) => {
-      //console.log(result);
       response.json(result[0]);
     });
 });
@@ -75,19 +69,7 @@ router.route("/coronaDetails").post((request, response) => {
     });
 });
 
-// ######################
-// router.route("/isolatinOperations").patch((request, response) => {
-//   let isolatin = { ...request.body };
 
-//   isolatinOperations
-//     .checkDetails(isolatin)
-//     .then(() => {
-//       response.status(201).send("success , A valid request");
-//     })
-//     .catch((error) => {
-//       response.status(400).send("Request with a missing field ");
-//     });
-// });
 
 var port = process.env.PORT || 8090;
 app.listen(port);
