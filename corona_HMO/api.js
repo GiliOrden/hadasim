@@ -1,5 +1,6 @@
 var dboperations = require("./dboperations");
 var coronaOperations = require("./coronaOperations");
+var isolatinOperations = require("./isolatinOperations");
 
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -74,6 +75,20 @@ router.route("/coronaDetails").post((request, response) => {
     });
 });
 
+// ######################
+router.route("/isolatinOperations").patch((request, response) => {
+  let isolatin = { ...request.body };
+
+  isolatinOperations
+    .checkDetails(isolatin)
+    .then(() => {
+      response.status(201).send("success , A valid request");
+    })
+    .catch((error) => {
+      response.status(400).send("Request with a missing field ");
+    });
+});
+
 var port = process.env.PORT || 8090;
 app.listen(port);
-console.log("personalDetails API is running at " + port);
+console.log("API is running at " + port);

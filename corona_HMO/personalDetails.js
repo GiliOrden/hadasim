@@ -8,7 +8,8 @@ class PersonalDetails {
     numberHome,
     dateOfBirth,
     telephone,
-    mobilePhone
+    mobilePhone,
+    picture
   ) {
     this.id = id;
     this.firstName = firstName;
@@ -20,6 +21,7 @@ class PersonalDetails {
     this.dateOfBirth = dateOfBirth;
     this.telephone = telephone;
     this.mobilePhone = mobilePhone;
+    this.picture = picture;
   }
 }
 module.exports = PersonalDetails;
