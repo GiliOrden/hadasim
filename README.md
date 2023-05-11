@@ -5,13 +5,15 @@ In order to run the first part of the project:
 1. In the 'twitter' folder find 'index.html' file.
 2. Right click and choose the option 'Open with live server'
 
+##############################################################
+
 Corona management system for HMO
 
 In order to run the second part of the project follow the following instructions:
 
 1. Write in the terminal 'cd ./corona_HMO' and than 'npm start'
 2. Open the 'postman'
-3. Choose a POST reuest with the URL:http://localhost:8090/api/personalDetails . Choose Body and than 'raw' and change to JSON (instead og text). Than write an object such as:
+3. Choose a POST reuest with the URL:http://localhost:8090/api/personalDetails. Choose Body and than 'raw' and change to JSON (instead of text). Than write an object such as:
    {
    "firstName": "John",
    "lastName": "Doe",

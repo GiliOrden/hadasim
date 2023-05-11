@@ -7,6 +7,7 @@ async function getPeopleDetails() {
     let personalDetails = await pool
       .request()
       .query("SELECT * from PersonalDetails");
+
     return personalDetails.recordsets;
   } catch (error) {
     console.log(error);
@@ -20,6 +21,7 @@ async function getPersonDetails(personId) {
       .request()
       .input("input_parameter", sql.NVarChar, personId)
       .query("SELECT * from PersonalDetails where id=@input_parameter");
+
     return personlDetails.recordsets;
   } catch (error) {
     console.log(error);

@@ -7,6 +7,7 @@ async function getAllCoronaDetails() {
     let coronaDetails = await pool
       .request()
       .query("SELECT * from coronaDetails");
+
     return coronaDetails.recordsets;
   } catch (error) {
     console.log(error);
@@ -20,6 +21,7 @@ async function getCoronaDetails(memberId) {
       .request()
       .input("input_parameter", sql.NVarChar, memberId)
       .query("SELECT * from coronaDetails where identityCard=@input_parameter");
+
     return personlDetails.recordsets;
   } catch (error) {
     console.log(error);
@@ -29,6 +31,7 @@ async function getCoronaDetails(memberId) {
 async function addCoronaDetails(coronaDetails) {
   try {
     let pool = await sql.connect(config);
+
     let insertCoronaDetails = await pool
       .request()
       .input("identityCard", sql.NVarChar, coronaDetails.identityCard)
@@ -65,18 +68,6 @@ async function addCoronaDetails(coronaDetails) {
     return insertCoronaDetails.recordsets;
   } catch (error) {
     throw error;
-  }
-}
-
-async function sumOfSickReopleEachDayLastMonth() {
-  try {
-    let pool = await sql.connect(config);
-    let coronaDetails = await pool
-      .request()
-      .query("SELECT * from coronaDetails");
-    return coronaDetails.recordsets;
-  } catch (error) {
-    console.log(error);
   }
 }
 

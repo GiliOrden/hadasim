@@ -12,24 +12,22 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use("/api", router);
 
-
-// ###################### get/getAll / post for the personalDetails table
+// ###################### get && getAll && post api for the personalDetails table ############################
 router.route("/personalDetails").get((request, response) => {
   dboperations.getPeopleDetails().then((result) => {
-    //console.log(result);
     response.json(result[0]);
   });
 });
 
 router.route("/personalDetails/:id").get((request, response) => {
   dboperations.getPersonDetails(request.params.id).then((result) => {
-    //console.log(result);
     response.json(result[0]);
   });
 });
 
 router.route("/personalDetails").post((request, response) => {
   let personDetails = { ...request.body };
+
   dboperations
     .addPersonDetails(personDetails)
     .then(() => {
@@ -39,7 +37,8 @@ router.route("/personalDetails").post((request, response) => {
       response.status(400).send("Failed to add member: " + error.message);
     });
 });
-// ###################### get/getAll / post for the coronaDetails table
+
+// ###################### get & getAll & post api for the coronaDetails table #######################
 router.route("/coronaDetails").get((request, response) => {
   coronaOperations.getAllCoronaDetails().then((result) => {
     response.json(result[0]);
@@ -68,8 +67,6 @@ router.route("/coronaDetails").post((request, response) => {
         .send("Failed to add corona details: " + error.message);
     });
 });
-
-
 
 var port = process.env.PORT || 8090;
 app.listen(port);
